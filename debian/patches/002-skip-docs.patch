@@ -1,0 +1,37 @@
+Description: skip building nonfree docs
+Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=708966
+Index: libmatheval/Makefile.in
+===================================================================
+--- libmatheval.orig/Makefile.in	2014-03-15 18:16:18.268272243 +0100
++++ libmatheval/Makefile.in	2014-03-15 18:16:18.260272178 +0100
+@@ -316,7 +316,7 @@
+ MAINTAINERCLEANFILES = Makefile.in aclocal.m4 configure config.h.in	\
+ config.log config.status stamp-h.in $(AUX_DIST)
+ 
+-SUBDIRS = doc lib tests
++SUBDIRS = lib tests
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = libmatheval.pc
+ all: config.h
+Index: libmatheval/Makefile.am
+===================================================================
+--- libmatheval.orig/Makefile.am	2014-03-15 18:16:18.268272243 +0100
++++ libmatheval/Makefile.am	2014-03-15 18:16:18.260272178 +0100
+@@ -27,7 +27,7 @@
+ MAINTAINERCLEANFILES = Makefile.in aclocal.m4 configure config.h.in	\
+ config.log config.status stamp-h.in $(AUX_DIST)
+ 
+-SUBDIRS = doc lib tests
++SUBDIRS = lib tests
+ 
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = libmatheval.pc
+Index: libmatheval/doc/Makefile.am
+===================================================================
+--- libmatheval.orig/doc/Makefile.am	2014-03-15 17:19:43.560183884 +0100
++++ libmatheval/doc/Makefile.am	2014-03-15 18:16:31.532370035 +0100
+@@ -19,4 +19,3 @@
+ 
+ MAINTAINERCLEANFILES = Makefile.in
+ 
+-info_TEXINFOS = libmatheval.texi

@@ -1,0 +1,24 @@
+#!/bin/sh
+set -e
+
+version=$2
+filename=`readlink -f $3`
+targetdir=`dirname $filename`
+
+dir=`mktemp -d`
+
+curdir=`pwd`
+
+origname="${targetdir}/libmatheval_${version}+dfsg.orig.tar.gz"
+
+echo "Repacking libmatheval version $version from $filename"
+
+cd "$dir"
+tar xzf "$filename"
+# remove non-free docs #708966
+rm -f libmatheval-$version/doc/libmatheval.info
+rm -f libmatheval-$version/doc/libmatheval.texi
+tar czf "$origname" libmatheval-$version
+echo "Repacked tarball is $origname"
+cd -
+rm -rf "$dir"

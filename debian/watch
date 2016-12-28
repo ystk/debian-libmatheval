@@ -1,0 +1,4 @@
+version=3
+opts=dversionmangle=s/\+dfsg\d*+$// \
+ftp://ftp.gnu.org/gnu/libmatheval/libmatheval-(.*)\.tar\.gz debian debian/new-upstream
+
